@@ -1,0 +1,34 @@
+{
+    "project": {
+        "title": "12-s182113+181442",
+        "creator": "MTiongco + MHuang"
+    },
+    "tabs": [
+        {
+            "title": "0: Info",
+            "query": "",
+            "triples": "",
+            "description": "This is the SPARQL visualizer. It lets you visualize an query graph data represented in the [RDF](https://www.w3.org/TR/rdf11-primer/) language."
+        },
+        {
+            "title": "Ex 2.1 - Auditorium structural system",
+            "query": "CONSTRUCT\nWHERE {\n\t?nodeA ?edge ?nodeB\n}",
+            "triples": "<DTU116> <is_a> <Building> .\n<DTU116> <contains_space> <Auditorium81> .\n<DTU116> <contains_space> <Auditorium82> .\n<Auditorium81> <is_a> <Room> .\n<Auditorium82> <is_a> <Room> .\n<Auditorium81> <contains_element> <Chair1> .\n<Chair1> <is_a> <Chair> .",
+            "description": "This is a visualization of the structural system of the building"
+        },
+        {
+            "title": "Ex 2.2 - Live Load Query",
+            "query": "CONSTRUCT\nWHERE {\n\t?nodeA <is_a> <Live_Load>\n}",
+            "triples": "<Auditorium81> <is_a> <Room> .\n<Auditorium81> <is_located_in> <DTU_Lyngby> .\n<DTU_Lyngby> <is_a> <Location> .\n<Auditorium81> <has_a_capacity_of> <500_People> . \n<500_People> <is_a> <Capacity> .\n<Auditorium81> <has_a_height_of> <10m> .\n<Auditorium81> <has_a_width_of> <20m> .\n<10m> <is_a> <Dimension> .\n<20m> <is_a> <Dimension> .\n<Column_setA> <has_a_height_of> <10m> .\n<Beam_setA> <has_a_length_of> <20m> .\n<500_People> <is_a> <Live_Load> .\n<Beam_setA> <needs_to_carry> <Live_Load> .\n<DTU_Lyngby> <has_a_load_of> <0.7kPa> .\n<0.7kPa> <is_a> <Live_Load> .\n<Column_setA> <needs_to_carry> <Live_Load> .\n<Beam_setA> <is_a> <Structural_Member> .\n<Column_setA> <is_a> <Structural_Member> .\n<Column_setA> <contains> <ColumnA> .\n<Column_setA> <contains> <ColumnB> .\n<ColumnA> <is_a> <Structural_Member> .\n<ColumnB> <is_a> <Structural_Member> .\n<Beam_setA> <contains> <BeamA> .\n<Beam_setA> <contains> <BeamB> .\n<BeamA> <is_a> <Structural_Member> .\n<BeamB> <is_a> <Structural_Member> .",
+            "description": "This query defines all of the live loads that needs to be considered"
+          }
+        {
+            "title": "Ex 2.3 - Categorising all of the components in the structural system",
+            "query": "SELECT *\nWHERE {\n\t?Name <is_a> ?Category\n}",
+            "triples": "<Auditorium81> <is_a> <Room> .\n<Auditorium81> <is_located_in> <DTU_Lyngby> .\n<DTU_Lyngby> <is_a> <Location> .\n<Auditorium81> <has_a_capacity_of> <500_People> . \n<500_People> <is_a> <Capacity> .\n<Auditorium81> <has_a_height_of> <10m> .\n<Auditorium81> <has_a_width_of> <20m> .\n<10m> <is_a> <Dimension> .\n<20m> <is_a> <Dimension> .\n<Column_setA> <has_a_height_of> <10m> .\n<Beam_setA> <has_a_length_of> <20m> .\n<500_People> <is_a> <Live_Load> .\n<Beam_setA> <needs_to_carry> <Live_Load> .\n<DTU_Lyngby> <has_a_load_of> <0.7kPa> .\n<0.7kPa> <is_a> <Live_Load> .\n<Column_setA> <needs_to_carry> <Live_Load> .\n<Beam_setA> <is_a> <Structural_Member> .\n<Column_setA> <is_a> <Structural_Member> .\n<Column_setA> <contains> <ColumnA> .\n<Column_setA> <contains> <ColumnB> .\n<ColumnA> <is_a> <Structural_Member> .\n<ColumnB> <is_a> <Structural_Member> .\n<Beam_setA> <contains> <BeamA> .\n<Beam_setA> <contains> <BeamB> .\n<BeamA> <is_a> <Structural_Member> .\n<BeamB> <is_a> <Structural_Member> .",
+            "description": "This makes a table of all the elements that need to be considered in the structural system and defines each of their categories"
+          },
+           
+        
+    ]
+}
